@@ -1,39 +1,33 @@
 # legalAI
  Some useful modules for processing legal documents in Python
 
-> #### Modules:
->
-> `split_sentence`
->
-> `concepts`
->
-> #### How to use
->
-> Copy the needed Python file to your project. Also copy the `./common` directory and put them on the same level.
->
-> **Package Requirements**
->
-> - `stanza` 1.2.3 or above
->
->   The `common` module requires the Stanford Dependency Parsing tool. This server will listen at port 9010.
->
-> - `nltk` 3.6.5 or above
+#### How to use
 
-#### Sentence Simplification
+Refer to README.md in each module.
+
+**Package Requirements**
+
+- `stanza` 1.2.3 or above
+
+  The `common` module requires the Stanford Dependency Parsing tool. This server will listen at port 9010.
+
+- `nltk` 3.6.5 or above
+
+### Sentence Simplification
 
 Split a compound or complex sentence into simple ones.
 
-##### **API Functions:**
+#### **API Functions:**
 
 **`split_sentence`**
 
 Split the sentence based on two gates.
 
-| Argument   | Type    | Usage                                  | Remark           |
-| ---------- | ------- | -------------------------------------- | ---------------- |
-| `sentence` | string  | The sentence to be spliced             |                  |
-| `complex`  | boolean | If recursively split if it is complex  | By default, True |
-| `compound` | boolean | If recursively split if it is compound | By default, True |
+| Argument     | Type    | Usage                                       | Remark           |
+| ------------ | ------- | ------------------------------------------- | ---------------- |
+| `sentence`   | string  | The sentence to be spliced                  |                  |
+| [`complex`]  | boolean | If recursively split a complex sentence     | By default, True |
+| [`compound`] | boolean | If recursively split if a compound sentence | By default, True |
 
 **Return:**
 
@@ -42,15 +36,32 @@ A list of simple sentences
 **Remarks:**
 
 - The resultant sentences will not have ending punctuations.
-- Will consider proper names. For example, if the sentence is "I ate Fish and Chip.", it will not split the sentence.
+- Will consider proper names. For example, the sentence "I ate Fish and Chip." will not be splitted, because "Fish and Chip" can be intelligently identified as proper names.
 
-#### Legal Concept Tree
+### Legal Concept Tree
 
-Get the nice tree data structure of legal concepts.
+Please also copy 
 
+#### **API Functions:**
 
+**`get_concepts`**
 
+Get the indexed tree data structure of legal concepts.
 
+**Return:**
 
- 
+A map of tree nodes, where keys are legal terms and values are corresponding tree node.
+
+**Definition of node:**
+
+```python
+class Node:
+    def __init__(self, parent, value):
+        self.parent = parent
+        self.value = value
+        if parent:
+            self.level = parent.level + 1
+        else:
+            self.level = 0
+```
 

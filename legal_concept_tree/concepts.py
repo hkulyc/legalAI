@@ -1,6 +1,11 @@
+import pathlib
 import re
 from nltk.stem import WordNetLemmatizer
 
+source_path = pathlib.Path(__file__).parent.resolve()+'/taxhier_MC.txt'
+
+
+######## DO NOT MODIFY#####
 lemmatizer = WordNetLemmatizer()
 lemma = lemmatizer.lemmatize
 
@@ -25,7 +30,7 @@ def com_level(line):
     return num+2, line[start:]
 
 def get_concepts():
-    file = open('taxhier_MC.txt')
+    file = open(source_path)
     root = Trie(None, None)
     parent = [root]
     concepts = {}
