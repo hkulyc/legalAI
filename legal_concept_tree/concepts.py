@@ -2,7 +2,7 @@ import pathlib
 import re
 from nltk.stem import WordNetLemmatizer
 
-source_path = pathlib.Path(__file__).parent.resolve()+'/taxhier_MC.txt'
+source_path = str(pathlib.Path(__file__).parent.resolve())+'/taxhier_MC.txt'
 
 
 ######## DO NOT MODIFY#####

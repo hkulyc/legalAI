@@ -1,9 +1,9 @@
-from concepts import get_concepts
+from legal_concept_tree.concepts import get_concepts
 import stanza
 from stanza.server import CoreNLPClient
-from coreNLP import *
-from split_sentence import *
-from utils import *
+from common.coreNLP import *
+from sentence_simplification.split_sentence import *
+from common.utils import *
 import gensim
 from gensim.test.utils import datapath
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator

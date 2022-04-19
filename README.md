@@ -15,6 +15,8 @@ Refer to README.md in each module
 
 - `nltk` 3.6.5 or above
 
+  Also install corresponding `nltk` data according to error messages.
+
 ## Sentence Simplification
 
 Split a compound or complex sentence into simple ones.

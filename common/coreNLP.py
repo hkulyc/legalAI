@@ -10,7 +10,7 @@ def parse_sentence(sent):
     with CoreNLPClient(endpoint='http://localhost:9010',
                        annotators=['tokenize','ssplit','pos','lemma','ner', 'parse', 'depparse','coref'],
                        start_server=stanza.server.StartServer.TRY_START,
-                       properties = pathlib.Path(__file__).parent.resolve()+'/corenlp_server-22d5b7f37b8f4735.props') as client:
+                       properties = str(pathlib.Path(__file__).parent.resolve())+'/corenlp_server-22d5b7f37b8f4735.props') as client:
         sent = client.annotate(sent).sentence[0]
         return sent
     

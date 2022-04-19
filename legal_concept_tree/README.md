@@ -17,5 +17,3 @@
    ```python
    from concepts import get_concepts
    ```
-
-   
