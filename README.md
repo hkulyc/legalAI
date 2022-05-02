@@ -67,3 +67,20 @@ class Node:
             self.level = 0
 ```
 
+## Sentence to Label
+
+#### **API Functions:**
+
+##### **`sent2label`**
+
+Generate several legally important tags from a sentence.
+
+| Argument   | Type                | Usage                              | Remark             |
+| ---------- | ------------------- | ---------------------------------- | ------------------ |
+| `sentence` | string              | The target sentence                |                    |
+| [`mode`]   | HYBRID/CON/DEP/WORD | Which tag generation method to use | By default, HYBRID |
+
+**Return:**
+
+A list of phrases
+
